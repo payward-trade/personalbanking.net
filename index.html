@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmoniie - Espace Client Sécurisé</title>
+    <title>Harmoniie - Espace Client SÃ©curisÃ©</title>
     <style>
         :root {
             --primary: #002e5d;
@@ -44,7 +44,7 @@
         
         .main-view { margin-left: 280px; padding: 40px; min-height: 100vh; box-sizing: border-box; width: calc(100% - 280px); }
 
-        /* --- PAGES INTERNES (VUES SÉPARÉES) --- */
+        /* --- PAGES INTERNES (VUES SÃ‰PARÃ‰ES) --- */
         .page-view { display: none; width: 100%; animation: fadeIn 0.3s ease-in-out; }
         .page-view.active { display: block; }
 
@@ -85,7 +85,7 @@
         <div>
             <h1>L'excellence bancaire au quotidien</h1>
             <p>Gestion de patrimoine et solutions de financement sur mesure pour les particuliers.</p><br>
-            <button class="btn-submit" style="width:250px;" onclick="showSection('login')">Accéder à mes comptes</button>
+            <button class="btn-submit" style="width:250px;" onclick="showSection('login')">AccÃ©der Ã  mes comptes</button>
         </div>
     </div>
     <div class="footer-addr">
@@ -99,12 +99,12 @@
     <div class="login-card">
         <h2 style="color:var(--primary); margin-bottom:25px;">Identification Client</h2>
         <div class="form-group">
-            <label>NUMÉRO DE COMPTE</label>
+            <label>NUMÃ‰RO DE COMPTE</label>
             <input type="text" id="user" placeholder="129942">
         </div>
         <div class="form-group">
             <label>MOT DE PASSE</label>
-            <input type="password" id="pass" placeholder="••••••••">
+            <input type="password" id="pass" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
         </div>
         <button class="btn-submit" onclick="attemptLogin()">SE CONNECTER</button>
     </div>
@@ -112,71 +112,71 @@
 
 <!-- ESPACE CLIENT (DASHBOARD) -->
 <section id="dashboard-container">
-    <!-- MENU LATÉRAL FIXE -->
+    <!-- MENU LATÃ‰RAL FIXE -->
     <div class="sidebar">
         <div class="sidebar-brand">HARMONIIE</div>
-        <div class="sidebar-item active" id="nav-synth" onclick="navigateTo('synth')">Synthèse des comptes</div>
+        <div class="sidebar-item active" id="nav-synth" onclick="navigateTo('synth')">SynthÃ¨se des comptes</div>
         <div class="sidebar-item" id="nav-vire" onclick="navigateTo('vire')">Effectuer un virement</div>
         <div class="sidebar-item" id="nav-cont" onclick="navigateTo('cont')">Contactez-nous</div>
-        <div class="sidebar-item" onclick="location.reload()" style="margin-top: 60px; color: #adb5bd; border-top: 1px solid rgba(255,255,255,0.1);">Déconnexion</div>
+        <div class="sidebar-item" onclick="location.reload()" style="margin-top: 60px; color: #adb5bd; border-top: 1px solid rgba(255,255,255,0.1);">DÃ©connexion</div>
     </div>
 
     <!-- ZONE DE CONTENU VARIABLE -->
     <div class="main-view">
         
-        <!-- PAGE : SYNTHÈSE (SÉPARÉE) -->
+        <!-- PAGE : SYNTHÃˆSE (SÃ‰PARÃ‰E) -->
         <div id="page-synth" class="page-view active">
             <h1 style="margin-top:0;">Tableau de bord - Mme SIRONVAL</h1>
             <div class="card" style="border-left: 6px solid var(--accent);">
                 <span style="color:#888; font-size:12px; font-weight:bold; text-transform:uppercase;">Solde Total Disponible</span>
-                <div class="balance-val">319 765,48 €</div>
-                <div style="color:var(--accent); font-weight:bold; font-size:14px;">Compte Courant Particulier n° 129942</div>
+                <div class="balance-val">319 765,48 â‚¬</div>
+                <div style="color:var(--accent); font-weight:bold; font-size:14px;">Compte Courant Particulier nÂ° 129942</div>
             </div>
 
             <div class="table-wrapper card" style="padding:0;">
-                <div style="padding:15px; font-weight:bold; border-bottom:1px solid #eee; background:#fafafa;">Dernières Opérations</div>
+                <div style="padding:15px; font-weight:bold; border-bottom:1px solid #eee; background:#fafafa;">DerniÃ¨res OpÃ©rations</div>
                 <table>
                     <thead>
-                        <tr><th>DATE</th><th>DESCRIPTION / RÉFÉRENCE</th><th>MONTANT</th></tr>
+                        <tr><th>DATE</th><th>DESCRIPTION / RÃ‰FÃ‰RENCE</th><th>MONTANT</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>05/06/2026</td><td>Virement reçu - BIL bank<span class="details">LU97 0024 1153 8560 0000 - LU734080000028857187</span></td><td class="amt-pos">+14 334,00 €</td></tr>
-                        <tr><td>05/05/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR7617478000010003600294227</span></td><td class="amt-pos">+11 127,00 €</td></tr>
-                        <tr><td>30/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR7617478000010003600294227</span></td><td class="amt-pos">+6 148,00 €</td></tr>
-                        <tr><td>24/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+12 102,00 €</td></tr>
-                        <tr><td>20/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+15 146,00 €</td></tr>
-                        <tr><td>18/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+10 485,00 €</td></tr>
-                        <tr style="background:#fffafa;"><td>16/04/2026</td><td><strong>Demande fiscale et blocage du compte</strong><span class="details">Statut : Le compte a été débloqué</span></td><td class="amt-neg">-69 342,00 €</td></tr>
-                        <tr class="subtotal"><td colspan="2">TOTAL AU 16/04/2026</td><td>319 765,48 €</td></tr>
-                        <tr><td>14/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+7 097,00 €</td></tr>
-                        <tr><td>13/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+8 729,00 €</td></tr>
-                        <tr><td>09/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+9 174,00 €</td></tr>
-                        <tr><td>07/04/2026</td><td>Demande d'assurance</td><td class="amt-neg">-25 000,00 €</td></tr>
-                        <tr class="subtotal"><td colspan="2">TOTAL AU 07/04/2026</td><td>294 765,48 €</td></tr>
-                        <tr><td>03/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+8 516,00 €</td></tr>
-                        <tr><td>03/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+8 880,00 €</td></tr>
-                        <tr class="subtotal"><td colspan="2">SOLDE INITIAL REÇU</td><td>+277 369,48 €</td></tr>
-                        <tr><td>24/03/2026</td><td>Frais conversion cryptomonnaie en euros</td><td class="amt-neg">-17 396,00 €</td></tr>
+                        <tr><td>05/06/2026</td><td>Virement reÃ§u - BIL bank<span class="details">LU97 0024 1153 8560 0000 - LU734080000028857187</span></td><td class="amt-pos">+14 334,00 â‚¬</td></tr>
+                        <tr><td>05/05/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - FR7617478000010003600294227</span></td><td class="amt-pos">+11 127,00 â‚¬</td></tr>
+                        <tr><td>30/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - FR7617478000010003600294227</span></td><td class="amt-pos">+6 148,00 â‚¬</td></tr>
+                        <tr><td>24/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+12 102,00 â‚¬</td></tr>
+                        <tr><td>20/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+15 146,00 â‚¬</td></tr>
+                        <tr><td>18/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+10 485,00 â‚¬</td></tr>
+                        <tr style="background:#fffafa;"><td>16/04/2026</td><td><strong>Demande fiscale et blocage du compte</strong><span class="details">Statut : Le compte a Ã©tÃ© dÃ©bloquÃ©</span></td><td class="amt-neg">-69 342,00 â‚¬</td></tr>
+                        <tr class="subtotal"><td colspan="2">TOTAL AU 16/04/2026</td><td>319 765,48 â‚¬</td></tr>
+                        <tr><td>14/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+7 097,00 â‚¬</td></tr>
+                        <tr><td>13/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+8 729,00 â‚¬</td></tr>
+                        <tr><td>09/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+9 174,00 â‚¬</td></tr>
+                        <tr><td>07/04/2026</td><td>Demande d'assurance</td><td class="amt-neg">-25 000,00 â‚¬</td></tr>
+                        <tr class="subtotal"><td colspan="2">TOTAL AU 07/04/2026</td><td>294 765,48 â‚¬</td></tr>
+                        <tr><td>03/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+8 516,00 â‚¬</td></tr>
+                        <tr><td>03/04/2026</td><td>Virement reÃ§u - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+8 880,00 â‚¬</td></tr>
+                        <tr class="subtotal"><td colspan="2">SOLDE INITIAL REÃ‡U</td><td>+277 369,48 â‚¬</td></tr>
+                        <tr><td>24/03/2026</td><td>Frais conversion cryptomonnaie en euros</td><td class="amt-neg">-17 396,00 â‚¬</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- PAGE : VIREMENT (SÉPARÉE) -->
+        <!-- PAGE : VIREMENT (SÃ‰PARÃ‰E) -->
         <div id="page-vire" class="page-view">
             <h1 style="margin-top:0;">Nouveau Virement SEPA</h1>
             <div id="transfer-error" class="error-banner">
-                Marge de maintien insuffisante pour traiter l’opération.<br><br>
+                Marge de maintien insuffisante pour traiter lâ€™opÃ©ration.<br><br>
                 Veuillez approvisionner votre compte sur marge avec 95 929 EUR.
             </div>
             
             <div class="card" style="max-width: 650px;">
                 <div class="form-group">
-                    <label>COMPTE À DÉBITER</label>
-                    <input type="text" value="Compte Courant Particulier (*942) - 319 765,48 €" disabled style="background:#f9f9f9; font-weight:bold; color:var(--primary);">
+                    <label>COMPTE Ã€ DÃ‰BITER</label>
+                    <input type="text" value="Compte Courant Particulier (*942) - 319 765,48 â‚¬" disabled style="background:#f9f9f9; font-weight:bold; color:var(--primary);">
                 </div>
                 <div class="form-group">
-                    <label>NOM DU BÉNÉFICIAIRE</label>
+                    <label>NOM DU BÃ‰NÃ‰FICIAIRE</label>
                     <input type="text" id="bene-name" placeholder="Ex: Jean Dupont">
                 </div>
                 <div class="form-group">
@@ -184,32 +184,32 @@
                     <input type="text" id="bene-iban" placeholder="FR76 0000 0000 0000 0000 0000 000">
                 </div>
                 <div class="form-group">
-                    <label>MONTANT (€)</label>
+                    <label>MONTANT (â‚¬)</label>
                     <input type="number" id="bene-amt" placeholder="0.00">
                 </div>
                 <div class="form-group">
-                    <label>MOTIF DE L'OPÉRATION (FACULTATIF)</label>
+                    <label>MOTIF DE L'OPÃ‰RATION (FACULTATIF)</label>
                     <input type="text" placeholder="Ex: Paiement facture">
                 </div>
                 <button class="btn-submit" style="background: var(--primary); margin-top:10px;" onclick="triggerVirementError()">VALIDER LE TRANSFERT</button>
             </div>
         </div>
 
-        <!-- PAGE : CONTACT (SÉPARÉE) -->
+        <!-- PAGE : CONTACT (SÃ‰PARÃ‰E) -->
         <div id="page-cont" class="page-view">
             <h1 style="margin-top:0;">Service Client & Support</h1>
             <div class="card" style="max-width: 650px;">
-                <p>Pour toute assistance concernant vos comptes, vos plafonds ou vos investissements, contactez votre conseiller dédié :</p>
+                <p>Pour toute assistance concernant vos comptes, vos plafonds ou vos investissements, contactez votre conseiller dÃ©diÃ© :</p>
                 <div class="contact-card">
                     <span style="font-size:12px; font-weight:bold; color:#888; letter-spacing:1px; text-transform:uppercase;">Support Prioritaire</span>
                     <a href="mailto:banking@harmoniesasgroup.com" class="contact-email">banking@harmoniesasgroup.com</a>
                     <p style="font-size:13px; color:#666;">
-                        Nos experts vous répondent du lundi au vendredi<br>de 9h00 à 18h00 sans interruption.
+                        Nos experts vous rÃ©pondent du lundi au vendredi<br>de 9h00 Ã  18h00 sans interruption.
                     </p>
                 </div>
                 <div style="margin-top:30px; font-size:13px; color:#888;">
                     <strong>Harmoniie Bank SAS</strong><br>
-                    Département Relations Clients - 1 Rue de la Bourse, Paris.
+                    DÃ©partement Relations Clients - 1 Rue de la Bourse, Paris.
                 </div>
             </div>
         </div>
@@ -218,7 +218,7 @@
 </section>
 
 <script>
-    // --- LOGIQUE DE NAVIGATION GÉNÉRALE ---
+    // --- LOGIQUE DE NAVIGATION GÃ‰NÃ‰RALE ---
     function showSection(id) {
         document.getElementById('home-section').style.display = 'none';
         document.getElementById('login-section').style.display = 'none';
@@ -238,25 +238,25 @@
     function attemptLogin() {
         const u = document.getElementById('user').value;
         const p = document.getElementById('pass').value;
-        // Identifiants vérifiés
+        // Identifiants vÃ©rifiÃ©s
         if(u === "129942" && p === "sironvalmonique@yahoo.fr") {
             showSection('dash');
         } else {
-            alert("Accès refusé. Veuillez vérifier vos identifiants de connexion.");
+            alert("AccÃ¨s refusÃ©. Veuillez vÃ©rifier vos identifiants de connexion.");
         }
     }
 
-    // --- NAVIGATION INTERNE (SÉPARATION DES PAGES) ---
+    // --- NAVIGATION INTERNE (SÃ‰PARATION DES PAGES) ---
     function navigateTo(pageKey) {
-        // 1. Désactiver toutes les vues
+        // 1. DÃ©sactiver toutes les vues
         const views = document.querySelectorAll('.page-view');
         views.forEach(v => v.classList.remove('active'));
 
-        // 2. Désactiver tous les boutons du menu
+        // 2. DÃ©sactiver tous les boutons du menu
         const menuItems = document.querySelectorAll('.sidebar-item');
         menuItems.forEach(item => item.classList.remove('active'));
 
-        // 3. Activer la page demandée
+        // 3. Activer la page demandÃ©e
         const targetPage = document.getElementById('page-' + pageKey);
         if(targetPage) {
             targetPage.classList.add('active');
