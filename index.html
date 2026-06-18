@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmoniie - Espace Client Sécurisé</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #002e5d;
@@ -12,9 +15,12 @@
             --success: #27ae60;
             --bg: #f4f7f6;
             --white: #ffffff;
+            /* Investment Theme Variables */
+            --ink:#12302C;--dark:#0F3D38;--teal:#0F6E63;--mint:#EAF5F2;--mint2:#D8ECE6;
+            --gold:#C49A3A;--muted:#5B6B68;--line:#E2EDEA;--goldBg:#FBF6EA;--goldInk:#8A6D1F;--goldMut:#6B5A2A;
         }
 
-        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #333; height: 100%; overflow-x: hidden; }
+        body, html { margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #333; height: 100%; overflow-x: hidden; scroll-behavior: smooth;}
 
         /* --- NAVIGATION PUBLIQUE --- */
         #public-nav { background: var(--white); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
@@ -44,10 +50,9 @@
         
         .main-view { margin-left: 280px; padding: 40px; min-height: 100vh; box-sizing: border-box; width: calc(100% - 280px); }
 
-        /* --- PAGES INTERNES (VUES SÉPARÉES) --- */
+        /* --- PAGES INTERNES --- */
         .page-view { display: none; width: 100%; animation: fadeIn 0.3s ease-in-out; }
         .page-view.active { display: block; }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .card { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 30px; }
@@ -63,8 +68,36 @@
         .details { display: block; font-size: 11px; color: #999; margin-top: 2px; }
         .subtotal { background: #fdf9f2; font-weight: bold; }
 
-        /* --- VIREMENT --- */
-        .error-banner { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none; font-weight: bold; line-height: 1.5; }
+        /* --- INVESTMENT PRESENTATION STYLES (SCOPED) --- */
+        .serif { font-family: 'Fraunces', serif; }
+        .deck-label { font-family: 'Fraunces', serif; font-size: 22px; color: var(--teal); font-weight: 600; margin: 40px 0 20px; display: flex; align-items: baseline; gap: 10px; }
+        .slide { container-type: inline-size; position: relative; width: 100%; aspect-ratio: 16/9; background: var(--white); border-radius: 16px; padding: 5.4cqw 5.8cqw; box-shadow: 0 10px 30px rgba(18,48,44,.10); margin-bottom: 40px; display: flex; flex-direction: column; }
+        .slide--dark { background: var(--dark); color: #fff; overflow: hidden; justify-content: center; }
+        .kicker { display: block; font-size: 1.45cqw; font-weight: 700; letter-spacing: .28em; color: var(--teal); text-transform: uppercase; }
+        .s-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 4.1cqw; color: var(--ink); margin-top: .7cqw; line-height: 1.05; }
+        .slide--dark .s-title, .slide--dark .t-title { color: #fff; }
+        .t-wordmark { font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: .18em; font-size: 2.2cqw; color: #fff; position: relative; z-index: 1; }
+        .t-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 6.1cqw; line-height: 1; margin: 20px 0; position: relative; z-index: 1; }
+        .t-sub { font-size: 2cqw; color: #CFE6E1; max-width: 75%; line-height: 1.4; position: relative; z-index: 1; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; }
+        .inv-card { background: var(--white); border: 1px solid var(--line); border-radius: 1.4cqw; padding: 2.4cqw; display: flex; gap: 1.6cqw; align-items: flex-start; }
+        .inv-card--mint { background: var(--mint); }
+        .badge { display: inline-flex; align-items: center; justify-content: center; width: 6.6cqw; height: 6.6cqw; border-radius: 50%; background: var(--white); flex-shrink: 0; }
+        .badge svg { width: 60%; color: var(--teal); }
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; }
+        .step { background: var(--white); border: 1px solid var(--line); border-radius: 1.4cqw; padding: 2cqw; min-height: 25cqw; }
+        .step-num { font-family: 'Fraunces', serif; font-size: 3cqw; color: var(--gold); font-weight: 600; }
+        .deco { position: absolute; border-radius: 50%; pointer-events: none; }
+        .deco--a { width: 42cqw; height: 42cqw; background: #12504A; top: -14cqw; right: -6cqw; }
+        .deco--b { width: 26cqw; height: 26cqw; background: #0C342F; bottom: -9cqw; right: 6cqw; }
+        .chart-row { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.4cqw; }
+        .stat { background: var(--mint); padding: 1.5cqw; border-radius: 1.2cqw; margin-bottom: 1cqw; }
+        .stat-n { font-family: 'Fraunces', serif; font-size: 2.5cqw; font-weight: 600; }
+        .bigstats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5cqw; margin-bottom: 2cqw; }
+        .bigstat { background: var(--mint); padding: 1.8cqw; border-radius: 1.3cqw; text-align: center; }
+        .note { display: flex; gap: 1.6cqw; background: var(--goldBg); padding: 2.2cqw; border-radius: 1.4cqw; border: 1px solid #efe3c4; }
+        .note-h { font-family: 'Fraunces', serif; color: var(--goldInk); font-size: 2cqw; margin-bottom: 10px; }
+        .note-p { color: var(--goldMut); font-size: 1.4cqw; line-height: 1.4; }
 
         /* --- CONTACT --- */
         .contact-card { text-align: center; border: 2px dashed var(--accent); padding: 40px; border-radius: 12px; background: #fffcf5; }
@@ -112,19 +145,18 @@
 
 <!-- ESPACE CLIENT (DASHBOARD) -->
 <section id="dashboard-container">
-    <!-- MENU LATÉRAL FIXE -->
     <div class="sidebar">
         <div class="sidebar-brand">HARMONIIE</div>
         <div class="sidebar-item active" id="nav-synth" onclick="navigateTo('synth')">Synthèse des comptes</div>
+        <div class="sidebar-item" id="nav-offres" onclick="navigateTo('offres')">Nos Offres d'Investissement</div>
         <div class="sidebar-item" id="nav-vire" onclick="navigateTo('vire')">Effectuer un virement</div>
         <div class="sidebar-item" id="nav-cont" onclick="navigateTo('cont')">Contactez-nous</div>
         <div class="sidebar-item" onclick="location.reload()" style="margin-top: 60px; color: #adb5bd; border-top: 1px solid rgba(255,255,255,0.1);">Déconnexion</div>
     </div>
 
-    <!-- ZONE DE CONTENU VARIABLE -->
     <div class="main-view">
         
-        <!-- PAGE : SYNTHÈSE (SÉPARÉE) -->
+        <!-- PAGE : SYNTHÈSE -->
         <div id="page-synth" class="page-view active">
             <h1 style="margin-top:0;">Tableau de bord - Mme SIRONVAL</h1>
             <div class="card" style="border-left: 6px solid var(--accent);">
@@ -140,76 +172,86 @@
                         <tr><th>DATE</th><th>DESCRIPTION / RÉFÉRENCE</th><th>MONTANT</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>05/06/2026</td><td>Virement reçu - BIL bank<span class="details">LU97 0024 1153 8560 0000 - LU734080000028857187</span></td><td class="amt-pos">+14 334,00 €</td></tr>
-                        <tr><td>05/05/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR7617478000010003600294227</span></td><td class="amt-pos">+11 127,00 €</td></tr>
-                        <tr><td>30/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR7617478000010003600294227</span></td><td class="amt-pos">+6 148,00 €</td></tr>
-                        <tr><td>24/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+12 102,00 €</td></tr>
-                        <tr><td>20/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+15 146,00 €</td></tr>
-                        <tr><td>18/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+10 485,00 €</td></tr>
-                        <tr style="background:#fffafa;"><td>16/04/2026</td><td><strong>Demande fiscale et blocage du compte</strong><span class="details">Statut : Le compte a été débloqué</span></td><td class="amt-neg">-69 342,00 €</td></tr>
+                        <tr><td>05/06/2026</td><td>Virement reçu - BIL bank<span class="details">LU97 0024 1153 8560 0000</span></td><td class="amt-pos">+14 334,00 €</td></tr>
+                        <tr><td>05/05/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480</span></td><td class="amt-pos">+11 127,00 €</td></tr>
+                        <tr style="background:#fffafa;"><td>16/04/2026</td><td><strong>Demande fiscale et blocage du compte</strong></td><td class="amt-neg">-69 342,00 €</td></tr>
                         <tr class="subtotal"><td colspan="2">TOTAL AU 16/04/2026</td><td>319 765,48 €</td></tr>
-                        <tr><td>14/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+7 097,00 €</td></tr>
-                        <tr><td>13/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+8 729,00 €</td></tr>
-                        <tr><td>09/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+9 174,00 €</td></tr>
-                        <tr><td>07/04/2026</td><td>Demande d'assurance</td><td class="amt-neg">-25 000,00 €</td></tr>
-                        <tr class="subtotal"><td colspan="2">TOTAL AU 07/04/2026</td><td>294 765,48 €</td></tr>
-                        <tr><td>03/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - FR761747800 0010 0038 3996 0081</span></td><td class="amt-pos">+8 516,00 €</td></tr>
-                        <tr><td>03/04/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480 - LU734080000028857187</span></td><td class="amt-pos">+8 880,00 €</td></tr>
-                        <tr class="subtotal"><td colspan="2">SOLDE INITIAL REÇU</td><td>+277 369,48 €</td></tr>
-                        <tr><td>24/03/2026</td><td>Frais conversion cryptomonnaie en euros</td><td class="amt-neg">-17 396,00 €</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- PAGE : VIREMENT (SÉPARÉE) -->
+        <!-- PAGE : OFFRES D'INVESTISSEMENT -->
+        <div id="page-offres" class="page-view">
+            <h1 style="margin-top:0;">Solutions d'Épargne Harmoniie</h1>
+            
+            <div class="deck-label">Présentation 1 — Compte Flex Épargne</div>
+            <section class="slide slide--dark">
+                <span class="deco deco--a"></span><span class="deco deco--b"></span>
+                <div class="t-wordmark">HARMONIIE</div>
+                <h1 class="t-title">Flex Épargne</h1>
+                <p class="t-sub">Un compte d'épargne flexible et capitalisé — une épargne qui fructifie tout en restant accessible.</p>
+            </section>
+
+            <section class="slide">
+                <div class="s-head"><span class="kicker">POURQUOI FLEX ÉPARGNE</span><h2 class="s-title">Conçu autour de la flexibilité</h2></div>
+                <div class="grid2">
+                    <div class="inv-card inv-card--mint">
+                        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h11M3 18h7M14 6a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM10 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg></span>
+                        <div><h3 class="serif">Accès libre</h3><p>Retirez ou alimentez le compte à tout moment, sans période de blocage.</p></div>
+                    </div>
+                    <div class="inv-card inv-card--mint">
+                        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M7 15l3-4 3 3 5-7"/></svg></span>
+                        <div><h3 class="serif">Capitalisation quotidienne</h3><p>Les intérêts sont calculés chaque jour et crédités chaque mois.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="deck-label">Présentation 2 — Plan Revenu Harmoniie</div>
+            <section class="slide slide--dark">
+                <span class="deco deco--a"></span><span class="deco deco--b"></span>
+                <div class="t-wordmark">HARMONIIE</div>
+                <h1 class="t-title">Plan Revenu</h1>
+                <p class="t-sub">Transformez un capital en un versement mensuel régulier et prévisible.</p>
+            </section>
+
+            <section class="slide">
+                <div class="s-head"><span class="kicker">SCÉNARIO ILLUSTRATIF</span><h2 class="s-title">300 000 € visant 2 000 € / mois</h2></div>
+                <div class="bigstats">
+                    <div class="bigstat"><div class="stat-n">300 000 €</div><div>Capital placé</div></div>
+                    <div class="bigstat"><div class="stat-n">2 000 €</div><div>Revenu mensuel</div></div>
+                    <div class="bigstat"><div class="stat-n">24 000 €</div><div>Par an</div></div>
+                    <div class="bigstat" style="background:var(--mint2)"><div class="stat-n" style="color:var(--gold)">≈ 8 % / an</div><div>Rendement cible</div></div>
+                </div>
+                <div class="note">
+                    <div><h3 class="note-h serif">Gestion de Flux de Trésorerie</h3>
+                    <p class="note-p">Le Plan Revenu Harmoniie est structuré pour maximiser vos retraits mensuels tout en maintenant une stratégie de gestion de risque rigoureuse adaptée à votre profil.</p></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE : VIREMENT -->
         <div id="page-vire" class="page-view">
             <h1 style="margin-top:0;">Nouveau Virement SEPA</h1>
-            <div id="transfer-error" class="error-banner">
-                Marge de maintien insuffisante pour traiter l’opération.<br><br>
+            <div id="transfer-error" class="error-banner" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none;">
+                Marge de maintien insuffisante pour traiter l’opération.<br>
                 Veuillez approvisionner votre compte sur marge avec 95 929 EUR.
             </div>
-            
             <div class="card" style="max-width: 650px;">
-                <div class="form-group">
-                    <label>COMPTE À DÉBITER</label>
-                    <input type="text" value="Compte Courant Particulier (*942) - 319 765,48 €" disabled style="background:#f9f9f9; font-weight:bold; color:var(--primary);">
-                </div>
-                <div class="form-group">
-                    <label>NOM DU BÉNÉFICIAIRE</label>
-                    <input type="text" id="bene-name" placeholder="Ex: Jean Dupont">
-                </div>
-                <div class="form-group">
-                    <label>IBAN DU DESTINATAIRE</label>
-                    <input type="text" id="bene-iban" placeholder="FR76 0000 0000 0000 0000 0000 000">
-                </div>
-                <div class="form-group">
-                    <label>MONTANT (€)</label>
-                    <input type="number" id="bene-amt" placeholder="0.00">
-                </div>
-                <div class="form-group">
-                    <label>MOTIF DE L'OPÉRATION (FACULTATIF)</label>
-                    <input type="text" placeholder="Ex: Paiement facture">
-                </div>
-                <button class="btn-submit" style="background: var(--primary); margin-top:10px;" onclick="triggerVirementError()">VALIDER LE TRANSFERT</button>
+                <div class="form-group"><label>BÉNÉFICIAIRE</label><input type="text" placeholder="Nom du destinataire"></div>
+                <div class="form-group"><label>IBAN</label><input type="text" placeholder="FR76..."></div>
+                <div class="form-group"><label>MONTANT (€)</label><input type="number" placeholder="0.00"></div>
+                <button class="btn-submit" style="background: var(--primary);" onclick="triggerVirementError()">VALIDER LE TRANSFERT</button>
             </div>
         </div>
 
-        <!-- PAGE : CONTACT (SÉPARÉE) -->
+        <!-- PAGE : CONTACT -->
         <div id="page-cont" class="page-view">
             <h1 style="margin-top:0;">Service Client & Support</h1>
             <div class="card" style="max-width: 650px;">
-                <p>Pour toute assistance concernant vos comptes, vos plafonds ou vos investissements, contactez votre conseiller dédié :</p>
                 <div class="contact-card">
-                    <span style="font-size:12px; font-weight:bold; color:#888; letter-spacing:1px; text-transform:uppercase;">Support Prioritaire</span>
+                    <span style="font-size:12px; font-weight:bold; color:#888; text-transform:uppercase;">Support Prioritaire</span>
                     <a href="mailto:banking@harmoniesasgroup.com" class="contact-email">banking@harmoniesasgroup.com</a>
-                    <p style="font-size:13px; color:#666;">
-                        Nos experts vous répondent du lundi au vendredi<br>de 9h00 à 18h00 sans interruption.
-                    </p>
-                </div>
-                <div style="margin-top:30px; font-size:13px; color:#888;">
-                    <strong>Harmoniie Bank SAS</strong><br>
-                    Département Relations Clients - 1 Rue de la Bourse, Paris.
                 </div>
             </div>
         </div>
@@ -218,65 +260,34 @@
 </section>
 
 <script>
-    // --- LOGIQUE DE NAVIGATION GÉNÉRALE ---
     function showSection(id) {
         document.getElementById('home-section').style.display = 'none';
         document.getElementById('login-section').style.display = 'none';
         document.getElementById('dashboard-container').style.display = 'none';
-        
-        if(id === 'login') {
-            document.getElementById('login-section').style.display = 'flex';
-        } else if(id === 'dash') {
+        if(id === 'login') document.getElementById('login-section').style.display = 'flex';
+        else if(id === 'dash') {
             document.getElementById('dashboard-container').style.display = 'flex';
             document.getElementById('public-nav').style.display = 'none';
-        } else {
-            document.getElementById('home-section').style.display = 'block';
-        }
+        } else document.getElementById('home-section').style.display = 'block';
     }
 
-    // --- AUTHENTIFICATION ---
     function attemptLogin() {
         const u = document.getElementById('user').value;
         const p = document.getElementById('pass').value;
-        // Identifiants vérifiés
-        if(u === "129942" && p === "sironvalmonique@yahoo.fr") {
-            showSection('dash');
-        } else {
-            alert("Accès refusé. Veuillez vérifier vos identifiants de connexion.");
-        }
+        if(u === "129942" && p === "sironvalmonique@yahoo.fr") showSection('dash');
+        else alert("Accès refusé.");
     }
 
-    // --- NAVIGATION INTERNE (SÉPARATION DES PAGES) ---
     function navigateTo(pageKey) {
-        // 1. Désactiver toutes les vues
-        const views = document.querySelectorAll('.page-view');
-        views.forEach(v => v.classList.remove('active'));
-
-        // 2. Désactiver tous les boutons du menu
-        const menuItems = document.querySelectorAll('.sidebar-item');
-        menuItems.forEach(item => item.classList.remove('active'));
-
-        // 3. Activer la page demandée
-        const targetPage = document.getElementById('page-' + pageKey);
-        if(targetPage) {
-            targetPage.classList.add('active');
-        }
-
-        // 4. Activer le bouton de menu correspondant
-        const targetNav = document.getElementById('nav-' + pageKey);
-        if(targetNav) {
-            targetNav.classList.add('active');
-        }
-
-        // 5. Reset des messages d'erreur et retour en haut de page
-        document.getElementById('transfer-error').style.display = 'none';
+        document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+        document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+        document.getElementById('page-' + pageKey).classList.add('active');
+        document.getElementById('nav-' + pageKey).classList.add('active');
         window.scrollTo(0, 0);
     }
 
-    // --- FONCTION VIREMENT ---
     function triggerVirementError() {
-        const errorBanner = document.getElementById('transfer-error');
-        errorBanner.style.display = 'block';
+        document.getElementById('transfer-error').style.display = 'block';
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 </script>
