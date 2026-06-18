@@ -21,13 +21,13 @@
             --goldBg:#FBF6EA;--goldInk:#8A6D1F;--goldMut:#6B5A2A;
         }
 
-        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: #333; height: 100%; overflow-x: hidden; }
+        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', 'Inter', Arial, sans-serif; background: var(--bg); color: #333; height: 100%; overflow-x: hidden; }
         .serif { font-family: 'Fraunces', serif; }
 
         /* --- NAVIGATION PUBLIQUE --- */
         #public-nav { background: var(--white); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 26px; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
-        .btn-portal { background: var(--primary); color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: bold; cursor: pointer; }
+        .btn-portal { background: var(--primary); color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; }
 
         /* --- ACCUEIL --- */
         #home-section { display: block; }
@@ -54,7 +54,7 @@
         .page-view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- DASHBOARD CARDS --- */
+        /* --- DASHBOARD ELEMENTS --- */
         .dash-card { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 30px; }
         .balance-val { font-size: 36px; font-weight: bold; color: var(--primary); margin: 10px 0; }
         .table-wrapper { background: white; border-radius: 8px; overflow: hidden; border: 1px solid #eee; }
@@ -65,74 +65,32 @@
         .amt-neg { color: var(--danger); font-weight: bold; }
         .details { display: block; font-size: 11px; color: #999; margin-top: 2px; }
         .subtotal { background: #fdf9f2; font-weight: bold; }
-        .error-banner { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none; font-weight: bold; white-space: pre-line; }
+        .error-banner { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none; font-weight: bold; line-height: 1.5; }
 
-        /* --- INVESTMENT SLIDE ENGINE (EXACT MATCH) --- */
+        /* --- INVESTMENT SLIDE ENGINE --- */
         .deck-label{font-family:'Fraunces',serif;font-size:clamp(15px,2.4vw,19px);color:var(--teal);font-weight:600;letter-spacing:.02em;margin:34px 4px 14px;display:flex;align-items:baseline;gap:10px}
-        .deck-label span{font-size:12px;color:var(--muted);letter-spacing:.16em;font-family:'Inter',sans-serif;font-weight:600;text-transform:uppercase}
         .slide{container-type:inline-size;position:relative;width:100%;aspect-ratio:16/9;background:var(--white);border-radius:16px;overflow:visible;padding:5.4cqw 5.8cqw;box-shadow:0 10px 30px rgba(18,48,44,.10);margin-bottom:22px;display:flex;flex-direction:column}
         .slide--dark{background:var(--dark);color:#fff;overflow:hidden;justify-content:center}
         .kicker{display:block;font-size:1.45cqw;font-weight:700;letter-spacing:.28em;color:var(--teal);text-transform:uppercase}
-        .s-head{margin-bottom:2.6cqw}
         .s-title{font-family:'Fraunces',serif;font-weight:600;font-size:4.1cqw;color:var(--ink);margin-top:.7cqw;line-height:1.05}
         .slide--dark .s-title { color: #fff; }
-        .foot{margin-top:auto;padding-top:1.8cqw;font-size:1.15cqw;font-style:italic;color:var(--muted)}
         .badge{display:inline-flex;align-items:center;justify-content:center;flex:none;width:6.6cqw;height:6.6cqw;border-radius:50%;background:var(--bg)}
         .badge svg{width:55%;height:55%;color:var(--ic)}
         .grid2{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw}
-        .grid2--top .card{align-items:flex-start}
-        .card{background:var(--white);border:1px solid var(--line);border-radius:1.4cqw;padding:2.4cqw;display:flex;gap:1.6cqw;align-items:flex-start;box-shadow:0 4px 14px rgba(18,48,44,.05)}
-        .card--mint{background:var(--mint);border-color:#DCEBE7}
-        .card-h{font-family:'Fraunces',serif;font-weight:600;font-size:2cqw;color:var(--ink);margin-bottom:.5cqw;line-height:1.1}
-        .card-h.sm{font-size:1.85cqw}
-        .card-p{font-size:1.45cqw;color:var(--muted);line-height:1.35}
-        .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw}
-        .step{background:var(--white);border:1px solid var(--line);border-radius:1.4cqw;padding:2cqw;box-shadow:0 4px 14px rgba(18,48,44,.05);min-height:30cqw}
-        .step--hl{background:var(--mint2);border-color:#C9E0DA}
-        .step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4cqw}
-        .step-num{font-family:'Fraunces',serif;font-weight:600;font-size:3cqw;color:var(--gold)}
-        .step-h{font-family:'Fraunces',serif;font-weight:600;font-size:2cqw;color:var(--ink);line-height:1.05;margin-bottom:.8cqw}
-        .step-p{font-size:1.4cqw;color:var(--muted);line-height:1.32}
-        .chart-row{display:grid;grid-template-columns:1.55fr 1fr;gap:2.4cqw;align-items:start}
-        .chart-wrap{background:#fff;border:1px solid var(--line);border-radius:1.4cqw;padding:1.6cqw}
-        .chart{width:100%;height:auto;display:block}
-        .chart .cax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--muted)}
-        .stat-col{display:flex;flex-direction:column;gap:1.2cqw}
-        .stat{background:var(--mint);border:1px solid #DCEBE7;border-radius:1.2cqw;padding:1.5cqw 1.7cqw}
-        .stat--hl{background:var(--mint2)}
-        .stat-n{font-family:'Fraunces',serif;font-weight:600;font-size:2.5cqw;color:var(--ink)}
-        .stat--hl .stat-n{color:var(--teal)}
-        .stat-l{font-size:1.25cqw;color:var(--muted);margin-top:.3cqw}
-        .rows{display:flex;flex-direction:column;gap:1.1cqw}
-        .row{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.4cqw;background:var(--white);border:1px solid var(--line);border-radius:1.2cqw;padding:1.3cqw 1.6cqw;box-shadow:0 4px 12px rgba(18,48,44,.04)}
-        .row--mint{background:var(--mint);border-color:#DCEBE7}
-        .row-main{display:grid;grid-template-columns:13cqw 1fr;gap:1.4cqw;align-items:center}
-        .row-k{font-family:'Fraunces',serif;font-weight:600;font-size:1.85cqw;color:var(--ink)}
-        .row-v{font-size:1.5cqw;color:var(--muted)}
+        .inv-card{background:var(--white);border:1px solid var(--line);border-radius:1.4cqw;padding:2.4cqw;display:flex;gap:1.6cqw;align-items:flex-start;box-shadow:0 4px 14px rgba(18,48,44,.05)}
+        .inv-card--mint{background:var(--mint);border-color:#DCEBE7}
         .bigstats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-bottom:2cqw}
         .bigstat{background:var(--mint);border:1px solid #DCEBE7;border-radius:1.3cqw;padding:1.8cqw}
-        .bigstat--hl{background:var(--mint2)}
         .bigstat-n{font-family:'Fraunces',serif;font-weight:600;font-size:2.9cqw;color:var(--ink)}
         .bigstat--hl .bigstat-n{color:var(--gold)}
-        .bigstat-l{font-size:1.3cqw;color:var(--muted);margin-top:.5cqw}
         .note{display:flex;gap:1.6cqw;align-items:flex-start;background:var(--goldBg);border:1px solid #EFE3C4;border-radius:1.4cqw;padding:2.2cqw 2.4cqw}
-        .note-h{font-family:'Fraunces',serif;font-weight:600;font-size:2cqw;color:var(--goldInk);margin-bottom:.7cqw}
-        .note-p{font-size:1.45cqw;color:var(--goldMut);line-height:1.4;margin-bottom:.6cqw}
+        .t-title{font-family:'Fraunces',serif;font-weight:600;font-size:6cqw;color:#fff;line-height:1;margin-bottom:2.4cqw;position:relative;z-index:2;}
+        .t-sub{font-size:2cqw;color:#CFE6E1;max-width:74%;line-height:1.4;margin-bottom:5cqw;position:relative;z-index:2;}
         .deco{position:absolute;border-radius:50%;pointer-events:none}
         .deco--a{width:42cqw;height:42cqw;background:#12504A;top:-14cqw;right:-6cqw}
         .deco--b{width:26cqw;height:26cqw;background:#0C342F;bottom:-9cqw;right:6cqw}
-        .deco--c{width:38cqw;height:38cqw;background:#12504A;bottom:-12cqw;left:-12cqw}
-        .deco--d{width:38cqw;height:38cqw;background:#12504A;top:-12cqw;right:-6cqw}
-        .t-wordmark{font-family:'Fraunces',serif;font-weight:600;letter-spacing:.18em;font-size:2.2cqw;color:#fff;margin-bottom:.4cqw}
-        .t-eyebrow{font-size:1.35cqw;letter-spacing:.22em;color:#9FC9C1;text-transform:uppercase;margin-bottom:6cqw}
-        .t-title{font-family:'Fraunces',serif;font-weight:600;font-size:6cqw;color:#fff;line-height:1;margin-bottom:2.4cqw}
-        .t-sub{font-size:2cqw;color:#CFE6E1;max-width:74%;line-height:1.4;margin-bottom:5cqw}
-        .slide--close{justify-content:center}
-        .c-title{font-family:'Fraunces',serif;font-weight:600;font-size:5cqw;color:#fff;margin-bottom:2cqw;line-height:1.05}
-        .c-text{font-size:2cqw;color:#CFE6E1;max-width:80%;line-height:1.45;margin-bottom:3cqw}
-        .t-wordmark,.t-eyebrow,.t-title,.t-sub,.c-title,.c-text{position:relative;z-index:1}
 
-        /* --- REVEAL ANIMATION --- */
+        /* --- REVEAL --- */
         .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
         .reveal.in{opacity:1;transform:none}
 
@@ -146,7 +104,7 @@
 <!-- NAVIGATION PUBLIQUE -->
 <nav id="public-nav">
     <div class="logo">HARMONIIE</div>
-    <div class="btn-portal" onclick="showSection('login')">Espace Client</div>
+    <button class="btn-portal" onclick="showSection('login')">Espace Client</button>
 </nav>
 
 <!-- SECTION ACCUEIL -->
@@ -192,8 +150,6 @@
     </div>
 
     <div class="main-view">
-        
-        <!-- PAGE : SYNTHÈSE -->
         <div id="page-synth" class="page-view active">
             <h1 style="margin-top:0;">Tableau de bord - Mme SIRONVAL</h1>
             <div class="dash-card" style="border-left: 6px solid var(--accent);">
@@ -201,107 +157,62 @@
                 <div class="balance-val">319 765,48 €</div>
                 <div style="color:var(--accent); font-weight:bold; font-size:14px;">Compte Courant Particulier n° 129942</div>
             </div>
-
             <div class="table-wrapper dash-card" style="padding:0;">
                 <div style="padding:15px; font-weight:bold; border-bottom:1px solid #eee; background:#fafafa;">Dernières Opérations</div>
                 <table>
-                    <thead>
-                        <tr><th>DATE</th><th>DESCRIPTION / RÉFÉRENCE</th><th>MONTANT</th></tr>
-                    </thead>
+                    <thead><tr><th>DATE</th><th>DESCRIPTION</th><th>MONTANT</th></tr></thead>
                     <tbody>
-                        <tr><td>05/06/2026</td><td>Virement reçu - BIL bank<span class="details">LU97 0024 1153 8560 0000</span></td><td class="amt-pos">+14 334,00 €</td></tr>
-                        <tr><td>05/05/2026</td><td>Virement reçu - BNP bank<span class="details">BE47 0020 2179 8480</span></td><td class="amt-pos">+11 127,00 €</td></tr>
-                        <tr style="background:#fffafa;"><td>16/04/2026</td><td><strong>Demande fiscale et blocage du compte</strong></td><td class="amt-neg">-69 342,00 €</td></tr>
-                        <tr class="subtotal"><td colspan="2">TOTAL AU 16/04/2026</td><td>319 765,48 €</td></tr>
+                        <tr><td>05/06/2026</td><td>Virement reçu - BIL bank</td><td class="amt-pos">+14 334,00 €</td></tr>
+                        <tr><td>05/05/2026</td><td>Virement reçu - BNP bank</td><td class="amt-pos">+11 127,00 €</td></tr>
+                        <tr style="background:#fffafa;"><td>16/04/2026</td><td><strong>Blocage du compte</strong></td><td class="amt-neg">-69 342,00 €</td></tr>
+                        <tr class="subtotal"><td colspan="2">TOTAL</td><td>319 765,48 €</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- PAGE : OFFRES D'INVESTISSEMENT -->
         <div id="page-offres" class="page-view">
             <h1 style="margin-top:0;">Solutions d'Épargne Harmoniie</h1>
-            
-            <div class="deck-label">Présentation 1 — Compte Flex Épargne <span>6 diapositives</span></div>
+            <div class="deck-label">Présentation 1 — Compte Flex Épargne</div>
             <section class="slide slide--dark reveal">
                 <span class="deco deco--a"></span><span class="deco deco--b"></span>
-                <div class="t-wordmark">HARMONIIE</div>
-                <div class="t-eyebrow">COMPTE D'ÉPARGNE</div>
                 <h1 class="t-title">Flex Épargne</h1>
                 <p class="t-sub">Un compte d'épargne flexible et capitalisé — une épargne qui fructifie tout en restant accessible.</p>
             </section>
-
             <section class="slide reveal">
-                <div class="s-head"><span class="kicker">POURQUOI FLEX ÉPARGNE</span><h2 class="s-title">Conçu autour de la flexibilité</h2></div>
+                <div class="s-head"><span class="kicker">AVANTAGES</span><h2 class="s-title">Flexibilité Totale</h2></div>
                 <div class="grid2">
-                    <div class="card card--mint">
-                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h11M3 18h7M14 6a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM10 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM18 6h3M14 18h7M3 12h13M16 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM20 12h1"/></svg></span>
-                        <h3 class="card-h">Accès libre</h3>
-                        <p class="card-p">Retirez ou alimentez le compte à tout moment, sans période de blocage ni pénalité de sortie.</p>
+                    <div class="inv-card inv-card--mint">
+                        <span class="badge" style="--bg:#FFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h11M3 18h7"/></svg></span>
+                        <div><h3 class="serif">Accès libre</h3><p>Retirez ou alimentez le compte à tout moment.</p></div>
                     </div>
-                    <div class="card card--mint">
-                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M7 15l3-4 3 3 5-7"/><path d="M18 7h2v2"/></svg></span>
-                        <h3 class="card-h">Capitalisation quotidienne</h3>
-                        <p class="card-p">Les intérêts sont calculés chaque jour et crédités chaque mois : les rendements génèrent des rendements.</p>
-                    </div>
-                </div>
-            </section>
-
-            <div class="deck-label">Présentation 2 — Plan Revenu <span>6 diapositives</span></div>
-            <section class="slide slide--dark reveal">
-                <span class="deco deco--a"></span><span class="deco deco--b"></span>
-                <div class="t-wordmark">HARMONIIE</div>
-                <div class="t-eyebrow">PLAN D'ÉPARGNE</div>
-                <h1 class="t-title">Plan Revenu</h1>
-                <p class="t-sub">Transformez un capital en un versement mensuel régulier et prévisible.</p>
-            </section>
-
-            <section class="slide reveal">
-                <div class="s-head"><span class="kicker">SCÉNARIO</span><h2 class="s-title">300 000 € visant 2 000 € / mois</h2></div>
-                <div class="bigstats">
-                    <div class="bigstat"><div class="bigstat-n">300 000 €</div><div class="bigstat-l">Capital placé</div></div>
-                    <div class="bigstat"><div class="bigstat-n">2 000 €</div><div class="bigstat-l">Revenu mensuel</div></div>
-                    <div class="bigstat"><div class="bigstat-n">24 000 €</div><div class="bigstat-l">Par an</div></div>
-                    <div class="bigstat bigstat--hl"><div class="bigstat-n">≈ 8 % / an</div><div class="bigstat-l">Rendement cible</div></div>
-                </div>
-                <div class="note">
-                    <span class="badge" style="--bg:#F3E6C8;--ic:#C49A3A"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="M12 11v5M12 7.6h.01"/></svg></span>
-                    <div><h3 class="note-h">Stratégie de Revenu</h3><p class="note-p">Un versement annuel d'environ 8 % est structuré pour répondre à vos besoins de liquidités. Ce plan est géré activement pour maintenir la cible de versement tout en optimisant la performance du capital investi.</p></div>
                 </div>
             </section>
         </div>
 
-        <!-- PAGE : VIREMENT -->
         <div id="page-vire" class="page-view">
             <h1 style="margin-top:0;">Nouveau Virement SEPA</h1>
-            <div id="transfer-error" class="error-banner">
-                Marge de maintien insuffisante pour traiter l’opération.<br>
-                Veuillez approvisionner votre compte sur marge avec 95 929 EUR.
-            </div>
+            <div id="transfer-error" class="error-banner">Marge de maintien insuffisante. Veuillez approvisionner votre compte avec 95 929 EUR.</div>
             <div class="dash-card" style="max-width: 650px;">
-                <div class="form-group"><label>BÉNÉFICIAIRE</label><input type="text" placeholder="Nom du destinataire"></div>
+                <div class="form-group"><label>BÉNÉFICIAIRE</label><input type="text" placeholder="Nom"></div>
                 <div class="form-group"><label>IBAN</label><input type="text" placeholder="FR76..."></div>
                 <div class="form-group"><label>MONTANT (€)</label><input type="number" placeholder="0.00"></div>
-                <button class="btn-submit" style="background: var(--primary);" onclick="triggerVirementError()">VALIDER LE TRANSFERT</button>
+                <button class="btn-submit" style="background: var(--primary);" onclick="triggerVirementError()">VALIDER</button>
             </div>
         </div>
 
-        <!-- PAGE : CONTACT -->
         <div id="page-cont" class="page-view">
-            <h1 style="margin-top:0;">Service Client & Support</h1>
+            <h1 style="margin-top:0;">Service Client</h1>
             <div class="dash-card" style="max-width: 650px;">
                 <div class="contact-card">
-                    <span style="font-size:12px; font-weight:bold; color:#888; text-transform:uppercase;">Support Prioritaire</span>
                     <a href="mailto:banking@harmoniesasgroup.com" class="contact-email">banking@harmoniesasgroup.com</a>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
 <script>
-    // Reveal Animation Logic
     const obs = new IntersectionObserver((es) => {
         es.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }});
     }, {threshold: .12});
@@ -313,47 +224,40 @@
         
         if(id === 'login') {
             document.getElementById('login-section').style.display = 'flex';
+            document.getElementById('public-nav').style.display = 'flex';
         } else if(id === 'dash') {
             document.getElementById('dashboard-container').style.display = 'flex';
             document.getElementById('public-nav').style.display = 'none';
-            // Start observing reveals when dashboard opens
             document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
         } else {
             document.getElementById('home-section').style.display = 'block';
+            document.getElementById('public-nav').style.display = 'flex';
         }
     }
 
     function attemptLogin() {
         const u = document.getElementById('user').value;
         const p = document.getElementById('pass').value;
-        // Verify credentials
         if(u === "129942" && p === "sironvalmonique@yahoo.fr") {
             showSection('dash');
         } else {
-            alert("Accès refusé. Veuillez vérifier vos identifiants.");
+            alert("Accès refusé.");
         }
     }
 
     function navigateTo(pageKey) {
         document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
         document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
-        
-        const targetPage = document.getElementById('page-' + pageKey);
-        const targetNav = document.getElementById('nav-' + pageKey);
-        
-        if(targetPage) targetPage.classList.add('active');
-        if(targetNav) targetNav.classList.add('active');
-        
+        document.getElementById('page-' + pageKey).classList.add('active');
+        document.getElementById('nav-' + pageKey).classList.add('active');
         document.getElementById('transfer-error').style.display = 'none';
         window.scrollTo(0, 0);
     }
 
     function triggerVirementError() {
-        const errorBanner = document.getElementById('transfer-error');
-        errorBanner.style.display = 'block';
+        document.getElementById('transfer-error').style.display = 'block';
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 </script>
-
 </body>
 </html>
