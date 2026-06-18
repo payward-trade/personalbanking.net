@@ -65,7 +65,7 @@
         .amt-neg { color: var(--danger); font-weight: bold; }
         .details { display: block; font-size: 11px; color: #999; margin-top: 2px; }
         .subtotal { background: #fdf9f2; font-weight: bold; }
-        .error-banner { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none; font-weight: bold; }
+        .error-banner { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none; font-weight: bold; white-space: pre-line; }
 
         /* --- INVESTMENT SLIDE ENGINE (EXACT MATCH) --- */
         .deck-label{font-family:'Fraunces',serif;font-size:clamp(15px,2.4vw,19px);color:var(--teal);font-weight:600;letter-spacing:.02em;margin:34px 4px 14px;display:flex;align-items:baseline;gap:10px}
@@ -109,11 +109,6 @@
         .row-main{display:grid;grid-template-columns:13cqw 1fr;gap:1.4cqw;align-items:center}
         .row-k{font-family:'Fraunces',serif;font-weight:600;font-size:1.85cqw;color:var(--ink)}
         .row-v{font-size:1.5cqw;color:var(--muted)}
-        .idea{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw}
-        .idea-left{flex-direction:column;gap:1.2cqw}
-        .idea-left .card-h{margin-top:.6cqw}
-        .idea-right{display:flex;flex-direction:column;gap:1.2cqw}
-        .idea-right .card{align-items:center}
         .bigstats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-bottom:2cqw}
         .bigstat{background:var(--mint);border:1px solid #DCEBE7;border-radius:1.3cqw;padding:1.8cqw}
         .bigstat--hl{background:var(--mint2)}
@@ -227,7 +222,7 @@
         <div id="page-offres" class="page-view">
             <h1 style="margin-top:0;">Solutions d'Épargne Harmoniie</h1>
             
-            <div class="deck-label" id="p1">Présentation 1 — Compte Flex Épargne <span>6 diapositives</span></div>
+            <div class="deck-label">Présentation 1 — Compte Flex Épargne <span>6 diapositives</span></div>
             <section class="slide slide--dark reveal">
                 <span class="deco deco--a"></span><span class="deco deco--b"></span>
                 <div class="t-wordmark">HARMONIIE</div>
@@ -249,39 +244,10 @@
                         <h3 class="card-h">Capitalisation quotidienne</h3>
                         <p class="card-p">Les intérêts sont calculés chaque jour et crédités chaque mois : les rendements génèrent des rendements.</p>
                     </div>
-                    <div class="card card--mint">
-                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/></svg></span>
-                        <h3 class="card-h">Aucun préavis</h3>
-                        <p class="card-p">Les fonds restent liquides — pas de durée fixe ni de délai d'attente pour accéder à votre argent.</p>
-                    </div>
-                    <div class="card card--mint">
-                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
-                        <h3 class="card-h">Capital placé en dépôt</h3>
-                        <p class="card-p">Les soldes sont détenus en dépôt, et non investis — selon les conditions de protection bancaire.</p>
-                    </div>
                 </div>
             </section>
 
-            <section class="slide reveal">
-                <div class="s-head"><span class="kicker">CROISSANCE ILLUSTRATIVE</span><h2 class="s-title">300 000 € à un taux variable de 4 %</h2></div>
-                <div class="chart-row">
-                    <div class="chart-wrap">
-                        <svg class="chart" viewBox="0 0 560 320">
-                            <line x1="64" y1="290" x2="544" y2="290" stroke="#E8F0EE" stroke-width="1"/>
-                            <line x1="64" y1="124" x2="544" y2="124" stroke="#E8F0EE" stroke-width="1"/>
-                            <polyline points="64,124 112,117 160,110 208,103 256,95 304,87 352,79 400,71 448,62 496,52 544,43" fill="none" stroke="#0F6E63" stroke-width="3"/>
-                            <text x="56" y="128" text-anchor="end" class="cax">300 k€</text>
-                            <text x="64" y="308" text-anchor="middle" class="cax">An 0</text><text x="544" y="308" text-anchor="middle" class="cax">An 10</text>
-                        </svg>
-                    </div>
-                    <div class="stat-col">
-                        <div class="stat"><div class="stat-n">300 000 €</div><div class="stat-l">Solde de départ</div></div>
-                        <div class="stat stat--hl"><div class="stat-n">≈ 447 250 €</div><div class="stat-l">Après 10 ans</div></div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="deck-label" id="p2">Présentation 2 — Plan Revenu <span>6 diapositives</span></div>
+            <div class="deck-label">Présentation 2 — Plan Revenu <span>6 diapositives</span></div>
             <section class="slide slide--dark reveal">
                 <span class="deco deco--a"></span><span class="deco deco--b"></span>
                 <div class="t-wordmark">HARMONIIE</div>
@@ -335,6 +301,7 @@
 </section>
 
 <script>
+    // Reveal Animation Logic
     const obs = new IntersectionObserver((es) => {
         es.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }});
     }, {threshold: .12});
@@ -343,15 +310,50 @@
         document.getElementById('home-section').style.display = 'none';
         document.getElementById('login-section').style.display = 'none';
         document.getElementById('dashboard-container').style.display = 'none';
-        if(id === 'login') document.getElementById('login-section').style.display = 'flex';
-        else if(id === 'dash') {
+        
+        if(id === 'login') {
+            document.getElementById('login-section').style.display = 'flex';
+        } else if(id === 'dash') {
             document.getElementById('dashboard-container').style.display = 'flex';
             document.getElementById('public-nav').style.display = 'none';
+            // Start observing reveals when dashboard opens
             document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-        } else document.getElementById('home-section').style.display = 'block';
+        } else {
+            document.getElementById('home-section').style.display = 'block';
+        }
     }
 
     function attemptLogin() {
         const u = document.getElementById('user').value;
         const p = document.getElementById('pass').value;
-        if(u === "129942
+        // Verify credentials
+        if(u === "129942" && p === "sironvalmonique@yahoo.fr") {
+            showSection('dash');
+        } else {
+            alert("Accès refusé. Veuillez vérifier vos identifiants.");
+        }
+    }
+
+    function navigateTo(pageKey) {
+        document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+        document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+        
+        const targetPage = document.getElementById('page-' + pageKey);
+        const targetNav = document.getElementById('nav-' + pageKey);
+        
+        if(targetPage) targetPage.classList.add('active');
+        if(targetNav) targetNav.classList.add('active');
+        
+        document.getElementById('transfer-error').style.display = 'none';
+        window.scrollTo(0, 0);
+    }
+
+    function triggerVirementError() {
+        const errorBanner = document.getElementById('transfer-error');
+        errorBanner.style.display = 'block';
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
+
+</body>
+</html>
