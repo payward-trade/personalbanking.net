@@ -17,10 +17,12 @@
             --white: #ffffff;
             /* Investment Theme Variables */
             --ink:#12302C;--dark:#0F3D38;--teal:#0F6E63;--mint:#EAF5F2;--mint2:#D8ECE6;
-            --gold:#C49A3A;--muted:#5B6B68;--line:#E2EDEA;--goldBg:#FBF6EA;--goldInk:#8A6D1F;--goldMut:#6B5A2A;
+            --gold:#C49A3A;--muted:#5B6B68;--line:#E2EDEA;
+            --goldBg:#FBF6EA;--goldInk:#8A6D1F;--goldMut:#6B5A2A;
         }
 
-        body, html { margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: var(--bg); color: #333; height: 100%; overflow-x: hidden; scroll-behavior: smooth;}
+        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: #333; height: 100%; overflow-x: hidden; }
+        .serif { font-family: 'Fraunces', serif; }
 
         /* --- NAVIGATION PUBLIQUE --- */
         #public-nav { background: var(--white); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
@@ -40,25 +42,21 @@
         .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
         .btn-submit { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
 
-        /* --- STRUCTURE ESPACE CLIENT (DASHBOARD) --- */
+        /* --- STRUCTURE ESPACE CLIENT --- */
         #dashboard-container { display: none; height: 100vh; width: 100%; }
         .sidebar { width: 280px; background: var(--primary); height: 100vh; position: fixed; color: white; padding-top: 30px; z-index: 10; }
         .sidebar-brand { padding: 0 30px 40px; font-size: 24px; font-weight: 800; letter-spacing: -1px; }
         .sidebar-item { padding: 15px 30px; cursor: pointer; transition: 0.3s; font-size: 15px; border-left: 4px solid transparent; display: flex; align-items: center; }
         .sidebar-item:hover { background: rgba(255,255,255,0.1); }
         .sidebar-item.active { background: rgba(255,255,255,0.15); border-left: 4px solid var(--accent); font-weight: bold; }
-        
         .main-view { margin-left: 280px; padding: 40px; min-height: 100vh; box-sizing: border-box; width: calc(100% - 280px); }
-
-        /* --- PAGES INTERNES --- */
         .page-view { display: none; width: 100%; animation: fadeIn 0.3s ease-in-out; }
         .page-view.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .card { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 30px; }
+
+        /* --- DASHBOARD CARDS --- */
+        .dash-card { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 30px; }
         .balance-val { font-size: 36px; font-weight: bold; color: var(--primary); margin: 10px 0; }
-        
-        /* --- TRANSACTIONS --- */
         .table-wrapper { background: white; border-radius: 8px; overflow: hidden; border: 1px solid #eee; }
         table { width: 100%; border-collapse: collapse; }
         th { background: #f8f9fa; padding: 12px 15px; text-align: left; font-size: 11px; color: #777; text-transform: uppercase; border-bottom: 1px solid #eee; }
@@ -67,37 +65,81 @@
         .amt-neg { color: var(--danger); font-weight: bold; }
         .details { display: block; font-size: 11px; color: #999; margin-top: 2px; }
         .subtotal { background: #fdf9f2; font-weight: bold; }
+        .error-banner { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none; font-weight: bold; }
 
-        /* --- INVESTMENT PRESENTATION STYLES (SCOPED) --- */
-        .serif { font-family: 'Fraunces', serif; }
-        .deck-label { font-family: 'Fraunces', serif; font-size: 22px; color: var(--teal); font-weight: 600; margin: 40px 0 20px; display: flex; align-items: baseline; gap: 10px; }
-        .slide { container-type: inline-size; position: relative; width: 100%; aspect-ratio: 16/9; background: var(--white); border-radius: 16px; padding: 5.4cqw 5.8cqw; box-shadow: 0 10px 30px rgba(18,48,44,.10); margin-bottom: 40px; display: flex; flex-direction: column; }
-        .slide--dark { background: var(--dark); color: #fff; overflow: hidden; justify-content: center; }
-        .kicker { display: block; font-size: 1.45cqw; font-weight: 700; letter-spacing: .28em; color: var(--teal); text-transform: uppercase; }
-        .s-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 4.1cqw; color: var(--ink); margin-top: .7cqw; line-height: 1.05; }
-        .slide--dark .s-title, .slide--dark .t-title { color: #fff; }
-        .t-wordmark { font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: .18em; font-size: 2.2cqw; color: #fff; position: relative; z-index: 1; }
-        .t-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 6.1cqw; line-height: 1; margin: 20px 0; position: relative; z-index: 1; }
-        .t-sub { font-size: 2cqw; color: #CFE6E1; max-width: 75%; line-height: 1.4; position: relative; z-index: 1; }
-        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw; }
-        .inv-card { background: var(--white); border: 1px solid var(--line); border-radius: 1.4cqw; padding: 2.4cqw; display: flex; gap: 1.6cqw; align-items: flex-start; }
-        .inv-card--mint { background: var(--mint); }
-        .badge { display: inline-flex; align-items: center; justify-content: center; width: 6.6cqw; height: 6.6cqw; border-radius: 50%; background: var(--white); flex-shrink: 0; }
-        .badge svg { width: 60%; color: var(--teal); }
-        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; }
-        .step { background: var(--white); border: 1px solid var(--line); border-radius: 1.4cqw; padding: 2cqw; min-height: 25cqw; }
-        .step-num { font-family: 'Fraunces', serif; font-size: 3cqw; color: var(--gold); font-weight: 600; }
-        .deco { position: absolute; border-radius: 50%; pointer-events: none; }
-        .deco--a { width: 42cqw; height: 42cqw; background: #12504A; top: -14cqw; right: -6cqw; }
-        .deco--b { width: 26cqw; height: 26cqw; background: #0C342F; bottom: -9cqw; right: 6cqw; }
-        .chart-row { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.4cqw; }
-        .stat { background: var(--mint); padding: 1.5cqw; border-radius: 1.2cqw; margin-bottom: 1cqw; }
-        .stat-n { font-family: 'Fraunces', serif; font-size: 2.5cqw; font-weight: 600; }
-        .bigstats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5cqw; margin-bottom: 2cqw; }
-        .bigstat { background: var(--mint); padding: 1.8cqw; border-radius: 1.3cqw; text-align: center; }
-        .note { display: flex; gap: 1.6cqw; background: var(--goldBg); padding: 2.2cqw; border-radius: 1.4cqw; border: 1px solid #efe3c4; }
-        .note-h { font-family: 'Fraunces', serif; color: var(--goldInk); font-size: 2cqw; margin-bottom: 10px; }
-        .note-p { color: var(--goldMut); font-size: 1.4cqw; line-height: 1.4; }
+        /* --- INVESTMENT SLIDE ENGINE (EXACT MATCH) --- */
+        .deck-label{font-family:'Fraunces',serif;font-size:clamp(15px,2.4vw,19px);color:var(--teal);font-weight:600;letter-spacing:.02em;margin:34px 4px 14px;display:flex;align-items:baseline;gap:10px}
+        .deck-label span{font-size:12px;color:var(--muted);letter-spacing:.16em;font-family:'Inter',sans-serif;font-weight:600;text-transform:uppercase}
+        .slide{container-type:inline-size;position:relative;width:100%;aspect-ratio:16/9;background:var(--white);border-radius:16px;overflow:visible;padding:5.4cqw 5.8cqw;box-shadow:0 10px 30px rgba(18,48,44,.10);margin-bottom:22px;display:flex;flex-direction:column}
+        .slide--dark{background:var(--dark);color:#fff;overflow:hidden;justify-content:center}
+        .kicker{display:block;font-size:1.45cqw;font-weight:700;letter-spacing:.28em;color:var(--teal);text-transform:uppercase}
+        .s-head{margin-bottom:2.6cqw}
+        .s-title{font-family:'Fraunces',serif;font-weight:600;font-size:4.1cqw;color:var(--ink);margin-top:.7cqw;line-height:1.05}
+        .slide--dark .s-title { color: #fff; }
+        .foot{margin-top:auto;padding-top:1.8cqw;font-size:1.15cqw;font-style:italic;color:var(--muted)}
+        .badge{display:inline-flex;align-items:center;justify-content:center;flex:none;width:6.6cqw;height:6.6cqw;border-radius:50%;background:var(--bg)}
+        .badge svg{width:55%;height:55%;color:var(--ic)}
+        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw}
+        .grid2--top .card{align-items:flex-start}
+        .card{background:var(--white);border:1px solid var(--line);border-radius:1.4cqw;padding:2.4cqw;display:flex;gap:1.6cqw;align-items:flex-start;box-shadow:0 4px 14px rgba(18,48,44,.05)}
+        .card--mint{background:var(--mint);border-color:#DCEBE7}
+        .card-h{font-family:'Fraunces',serif;font-weight:600;font-size:2cqw;color:var(--ink);margin-bottom:.5cqw;line-height:1.1}
+        .card-h.sm{font-size:1.85cqw}
+        .card-p{font-size:1.45cqw;color:var(--muted);line-height:1.35}
+        .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw}
+        .step{background:var(--white);border:1px solid var(--line);border-radius:1.4cqw;padding:2cqw;box-shadow:0 4px 14px rgba(18,48,44,.05);min-height:30cqw}
+        .step--hl{background:var(--mint2);border-color:#C9E0DA}
+        .step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4cqw}
+        .step-num{font-family:'Fraunces',serif;font-weight:600;font-size:3cqw;color:var(--gold)}
+        .step-h{font-family:'Fraunces',serif;font-weight:600;font-size:2cqw;color:var(--ink);line-height:1.05;margin-bottom:.8cqw}
+        .step-p{font-size:1.4cqw;color:var(--muted);line-height:1.32}
+        .chart-row{display:grid;grid-template-columns:1.55fr 1fr;gap:2.4cqw;align-items:start}
+        .chart-wrap{background:#fff;border:1px solid var(--line);border-radius:1.4cqw;padding:1.6cqw}
+        .chart{width:100%;height:auto;display:block}
+        .chart .cax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--muted)}
+        .stat-col{display:flex;flex-direction:column;gap:1.2cqw}
+        .stat{background:var(--mint);border:1px solid #DCEBE7;border-radius:1.2cqw;padding:1.5cqw 1.7cqw}
+        .stat--hl{background:var(--mint2)}
+        .stat-n{font-family:'Fraunces',serif;font-weight:600;font-size:2.5cqw;color:var(--ink)}
+        .stat--hl .stat-n{color:var(--teal)}
+        .stat-l{font-size:1.25cqw;color:var(--muted);margin-top:.3cqw}
+        .rows{display:flex;flex-direction:column;gap:1.1cqw}
+        .row{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.4cqw;background:var(--white);border:1px solid var(--line);border-radius:1.2cqw;padding:1.3cqw 1.6cqw;box-shadow:0 4px 12px rgba(18,48,44,.04)}
+        .row--mint{background:var(--mint);border-color:#DCEBE7}
+        .row-main{display:grid;grid-template-columns:13cqw 1fr;gap:1.4cqw;align-items:center}
+        .row-k{font-family:'Fraunces',serif;font-weight:600;font-size:1.85cqw;color:var(--ink)}
+        .row-v{font-size:1.5cqw;color:var(--muted)}
+        .idea{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw}
+        .idea-left{flex-direction:column;gap:1.2cqw}
+        .idea-left .card-h{margin-top:.6cqw}
+        .idea-right{display:flex;flex-direction:column;gap:1.2cqw}
+        .idea-right .card{align-items:center}
+        .bigstats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-bottom:2cqw}
+        .bigstat{background:var(--mint);border:1px solid #DCEBE7;border-radius:1.3cqw;padding:1.8cqw}
+        .bigstat--hl{background:var(--mint2)}
+        .bigstat-n{font-family:'Fraunces',serif;font-weight:600;font-size:2.9cqw;color:var(--ink)}
+        .bigstat--hl .bigstat-n{color:var(--gold)}
+        .bigstat-l{font-size:1.3cqw;color:var(--muted);margin-top:.5cqw}
+        .note{display:flex;gap:1.6cqw;align-items:flex-start;background:var(--goldBg);border:1px solid #EFE3C4;border-radius:1.4cqw;padding:2.2cqw 2.4cqw}
+        .note-h{font-family:'Fraunces',serif;font-weight:600;font-size:2cqw;color:var(--goldInk);margin-bottom:.7cqw}
+        .note-p{font-size:1.45cqw;color:var(--goldMut);line-height:1.4;margin-bottom:.6cqw}
+        .deco{position:absolute;border-radius:50%;pointer-events:none}
+        .deco--a{width:42cqw;height:42cqw;background:#12504A;top:-14cqw;right:-6cqw}
+        .deco--b{width:26cqw;height:26cqw;background:#0C342F;bottom:-9cqw;right:6cqw}
+        .deco--c{width:38cqw;height:38cqw;background:#12504A;bottom:-12cqw;left:-12cqw}
+        .deco--d{width:38cqw;height:38cqw;background:#12504A;top:-12cqw;right:-6cqw}
+        .t-wordmark{font-family:'Fraunces',serif;font-weight:600;letter-spacing:.18em;font-size:2.2cqw;color:#fff;margin-bottom:.4cqw}
+        .t-eyebrow{font-size:1.35cqw;letter-spacing:.22em;color:#9FC9C1;text-transform:uppercase;margin-bottom:6cqw}
+        .t-title{font-family:'Fraunces',serif;font-weight:600;font-size:6cqw;color:#fff;line-height:1;margin-bottom:2.4cqw}
+        .t-sub{font-size:2cqw;color:#CFE6E1;max-width:74%;line-height:1.4;margin-bottom:5cqw}
+        .slide--close{justify-content:center}
+        .c-title{font-family:'Fraunces',serif;font-weight:600;font-size:5cqw;color:#fff;margin-bottom:2cqw;line-height:1.05}
+        .c-text{font-size:2cqw;color:#CFE6E1;max-width:80%;line-height:1.45;margin-bottom:3cqw}
+        .t-wordmark,.t-eyebrow,.t-title,.t-sub,.c-title,.c-text{position:relative;z-index:1}
+
+        /* --- REVEAL ANIMATION --- */
+        .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+        .reveal.in{opacity:1;transform:none}
 
         /* --- CONTACT --- */
         .contact-card { text-align: center; border: 2px dashed var(--accent); padding: 40px; border-radius: 12px; background: #fffcf5; }
@@ -143,7 +185,7 @@
     </div>
 </section>
 
-<!-- ESPACE CLIENT (DASHBOARD) -->
+<!-- ESPACE CLIENT -->
 <section id="dashboard-container">
     <div class="sidebar">
         <div class="sidebar-brand">HARMONIIE</div>
@@ -159,13 +201,13 @@
         <!-- PAGE : SYNTHÈSE -->
         <div id="page-synth" class="page-view active">
             <h1 style="margin-top:0;">Tableau de bord - Mme SIRONVAL</h1>
-            <div class="card" style="border-left: 6px solid var(--accent);">
+            <div class="dash-card" style="border-left: 6px solid var(--accent);">
                 <span style="color:#888; font-size:12px; font-weight:bold; text-transform:uppercase;">Solde Total Disponible</span>
                 <div class="balance-val">319 765,48 €</div>
                 <div style="color:var(--accent); font-weight:bold; font-size:14px;">Compte Courant Particulier n° 129942</div>
             </div>
 
-            <div class="table-wrapper card" style="padding:0;">
+            <div class="table-wrapper dash-card" style="padding:0;">
                 <div style="padding:15px; font-weight:bold; border-bottom:1px solid #eee; background:#fafafa;">Dernières Opérations</div>
                 <table>
                     <thead>
@@ -185,47 +227,80 @@
         <div id="page-offres" class="page-view">
             <h1 style="margin-top:0;">Solutions d'Épargne Harmoniie</h1>
             
-            <div class="deck-label">Présentation 1 — Compte Flex Épargne</div>
-            <section class="slide slide--dark">
+            <div class="deck-label" id="p1">Présentation 1 — Compte Flex Épargne <span>6 diapositives</span></div>
+            <section class="slide slide--dark reveal">
                 <span class="deco deco--a"></span><span class="deco deco--b"></span>
                 <div class="t-wordmark">HARMONIIE</div>
+                <div class="t-eyebrow">COMPTE D'ÉPARGNE</div>
                 <h1 class="t-title">Flex Épargne</h1>
                 <p class="t-sub">Un compte d'épargne flexible et capitalisé — une épargne qui fructifie tout en restant accessible.</p>
             </section>
 
-            <section class="slide">
+            <section class="slide reveal">
                 <div class="s-head"><span class="kicker">POURQUOI FLEX ÉPARGNE</span><h2 class="s-title">Conçu autour de la flexibilité</h2></div>
                 <div class="grid2">
-                    <div class="inv-card inv-card--mint">
-                        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h11M3 18h7M14 6a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM10 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg></span>
-                        <div><h3 class="serif">Accès libre</h3><p>Retirez ou alimentez le compte à tout moment, sans période de blocage.</p></div>
+                    <div class="card card--mint">
+                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h11M3 18h7M14 6a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM10 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM18 6h3M14 18h7M3 12h13M16 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM20 12h1"/></svg></span>
+                        <h3 class="card-h">Accès libre</h3>
+                        <p class="card-p">Retirez ou alimentez le compte à tout moment, sans période de blocage ni pénalité de sortie.</p>
                     </div>
-                    <div class="inv-card inv-card--mint">
-                        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M7 15l3-4 3 3 5-7"/></svg></span>
-                        <div><h3 class="serif">Capitalisation quotidienne</h3><p>Les intérêts sont calculés chaque jour et crédités chaque mois.</p></div>
+                    <div class="card card--mint">
+                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M7 15l3-4 3 3 5-7"/><path d="M18 7h2v2"/></svg></span>
+                        <h3 class="card-h">Capitalisation quotidienne</h3>
+                        <p class="card-p">Les intérêts sont calculés chaque jour et crédités chaque mois : les rendements génèrent des rendements.</p>
+                    </div>
+                    <div class="card card--mint">
+                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/></svg></span>
+                        <h3 class="card-h">Aucun préavis</h3>
+                        <p class="card-p">Les fonds restent liquides — pas de durée fixe ni de délai d'attente pour accéder à votre argent.</p>
+                    </div>
+                    <div class="card card--mint">
+                        <span class="badge" style="--bg:#FFFFFF;--ic:#0F6E63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+                        <h3 class="card-h">Capital placé en dépôt</h3>
+                        <p class="card-p">Les soldes sont détenus en dépôt, et non investis — selon les conditions de protection bancaire.</p>
                     </div>
                 </div>
             </section>
 
-            <div class="deck-label">Présentation 2 — Plan Revenu Harmoniie</div>
-            <section class="slide slide--dark">
+            <section class="slide reveal">
+                <div class="s-head"><span class="kicker">CROISSANCE ILLUSTRATIVE</span><h2 class="s-title">300 000 € à un taux variable de 4 %</h2></div>
+                <div class="chart-row">
+                    <div class="chart-wrap">
+                        <svg class="chart" viewBox="0 0 560 320">
+                            <line x1="64" y1="290" x2="544" y2="290" stroke="#E8F0EE" stroke-width="1"/>
+                            <line x1="64" y1="124" x2="544" y2="124" stroke="#E8F0EE" stroke-width="1"/>
+                            <polyline points="64,124 112,117 160,110 208,103 256,95 304,87 352,79 400,71 448,62 496,52 544,43" fill="none" stroke="#0F6E63" stroke-width="3"/>
+                            <text x="56" y="128" text-anchor="end" class="cax">300 k€</text>
+                            <text x="64" y="308" text-anchor="middle" class="cax">An 0</text><text x="544" y="308" text-anchor="middle" class="cax">An 10</text>
+                        </svg>
+                    </div>
+                    <div class="stat-col">
+                        <div class="stat"><div class="stat-n">300 000 €</div><div class="stat-l">Solde de départ</div></div>
+                        <div class="stat stat--hl"><div class="stat-n">≈ 447 250 €</div><div class="stat-l">Après 10 ans</div></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="deck-label" id="p2">Présentation 2 — Plan Revenu <span>6 diapositives</span></div>
+            <section class="slide slide--dark reveal">
                 <span class="deco deco--a"></span><span class="deco deco--b"></span>
                 <div class="t-wordmark">HARMONIIE</div>
+                <div class="t-eyebrow">PLAN D'ÉPARGNE</div>
                 <h1 class="t-title">Plan Revenu</h1>
                 <p class="t-sub">Transformez un capital en un versement mensuel régulier et prévisible.</p>
             </section>
 
-            <section class="slide">
-                <div class="s-head"><span class="kicker">SCÉNARIO ILLUSTRATIF</span><h2 class="s-title">300 000 € visant 2 000 € / mois</h2></div>
+            <section class="slide reveal">
+                <div class="s-head"><span class="kicker">SCÉNARIO</span><h2 class="s-title">300 000 € visant 2 000 € / mois</h2></div>
                 <div class="bigstats">
-                    <div class="bigstat"><div class="stat-n">300 000 €</div><div>Capital placé</div></div>
-                    <div class="bigstat"><div class="stat-n">2 000 €</div><div>Revenu mensuel</div></div>
-                    <div class="bigstat"><div class="stat-n">24 000 €</div><div>Par an</div></div>
-                    <div class="bigstat" style="background:var(--mint2)"><div class="stat-n" style="color:var(--gold)">≈ 8 % / an</div><div>Rendement cible</div></div>
+                    <div class="bigstat"><div class="bigstat-n">300 000 €</div><div class="bigstat-l">Capital placé</div></div>
+                    <div class="bigstat"><div class="bigstat-n">2 000 €</div><div class="bigstat-l">Revenu mensuel</div></div>
+                    <div class="bigstat"><div class="bigstat-n">24 000 €</div><div class="bigstat-l">Par an</div></div>
+                    <div class="bigstat bigstat--hl"><div class="bigstat-n">≈ 8 % / an</div><div class="bigstat-l">Rendement cible</div></div>
                 </div>
                 <div class="note">
-                    <div><h3 class="note-h serif">Gestion de Flux de Trésorerie</h3>
-                    <p class="note-p">Le Plan Revenu Harmoniie est structuré pour maximiser vos retraits mensuels tout en maintenant une stratégie de gestion de risque rigoureuse adaptée à votre profil.</p></div>
+                    <span class="badge" style="--bg:#F3E6C8;--ic:#C49A3A"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="M12 11v5M12 7.6h.01"/></svg></span>
+                    <div><h3 class="note-h">Stratégie de Revenu</h3><p class="note-p">Un versement annuel d'environ 8 % est structuré pour répondre à vos besoins de liquidités. Ce plan est géré activement pour maintenir la cible de versement tout en optimisant la performance du capital investi.</p></div>
                 </div>
             </section>
         </div>
@@ -233,11 +308,11 @@
         <!-- PAGE : VIREMENT -->
         <div id="page-vire" class="page-view">
             <h1 style="margin-top:0;">Nouveau Virement SEPA</h1>
-            <div id="transfer-error" class="error-banner" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 4px; border: 1px solid #f5c6cb; margin-bottom: 25px; display: none;">
+            <div id="transfer-error" class="error-banner">
                 Marge de maintien insuffisante pour traiter l’opération.<br>
                 Veuillez approvisionner votre compte sur marge avec 95 929 EUR.
             </div>
-            <div class="card" style="max-width: 650px;">
+            <div class="dash-card" style="max-width: 650px;">
                 <div class="form-group"><label>BÉNÉFICIAIRE</label><input type="text" placeholder="Nom du destinataire"></div>
                 <div class="form-group"><label>IBAN</label><input type="text" placeholder="FR76..."></div>
                 <div class="form-group"><label>MONTANT (€)</label><input type="number" placeholder="0.00"></div>
@@ -248,7 +323,7 @@
         <!-- PAGE : CONTACT -->
         <div id="page-cont" class="page-view">
             <h1 style="margin-top:0;">Service Client & Support</h1>
-            <div class="card" style="max-width: 650px;">
+            <div class="dash-card" style="max-width: 650px;">
                 <div class="contact-card">
                     <span style="font-size:12px; font-weight:bold; color:#888; text-transform:uppercase;">Support Prioritaire</span>
                     <a href="mailto:banking@harmoniesasgroup.com" class="contact-email">banking@harmoniesasgroup.com</a>
@@ -260,6 +335,10 @@
 </section>
 
 <script>
+    const obs = new IntersectionObserver((es) => {
+        es.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }});
+    }, {threshold: .12});
+
     function showSection(id) {
         document.getElementById('home-section').style.display = 'none';
         document.getElementById('login-section').style.display = 'none';
@@ -268,29 +347,11 @@
         else if(id === 'dash') {
             document.getElementById('dashboard-container').style.display = 'flex';
             document.getElementById('public-nav').style.display = 'none';
+            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
         } else document.getElementById('home-section').style.display = 'block';
     }
 
     function attemptLogin() {
         const u = document.getElementById('user').value;
         const p = document.getElementById('pass').value;
-        if(u === "129942" && p === "sironvalmonique@yahoo.fr") showSection('dash');
-        else alert("Accès refusé.");
-    }
-
-    function navigateTo(pageKey) {
-        document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
-        document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
-        document.getElementById('page-' + pageKey).classList.add('active');
-        document.getElementById('nav-' + pageKey).classList.add('active');
-        window.scrollTo(0, 0);
-    }
-
-    function triggerVirementError() {
-        document.getElementById('transfer-error').style.display = 'block';
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-</script>
-
-</body>
-</html>
+        if(u === "129942
